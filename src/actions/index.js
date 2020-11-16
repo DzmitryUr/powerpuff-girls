@@ -55,7 +55,6 @@ export const fetchShow = () => async (dispatch) => {
   if (error || !response) {
     return dispatch(setShowError(true));
   }
-  console.log('fetchShow response=', response);
   dispatch(setShow(response.data));
 };
 
@@ -65,7 +64,6 @@ export const fetchEpisode = (id) => async (dispatch) => {
   if (error || !response) {
     return dispatch(setEpisodeError(true));
   }
-  console.log('fetchEpisode response=', response);
   dispatch(setEpisode(response.data));
 };
 
@@ -75,6 +73,5 @@ export const fetchEpisodes = (id) => async (dispatch) => {
   if (error || !response) {
     return dispatch(setEpisodesError(true));
   }
-  console.log('fetchEpisodes response=', response);
   dispatch(setEpisodes(response.data));
 };

@@ -18,7 +18,7 @@ const EpisodeDetails = ({ match, episode, episodeError, fetchEpisode }) => {
 
   return (
     <div className="page">
-      <div className="">
+      <div>
         <Link to={'/'}>The Powerpuff Girls</Link> {` / ${episode.name}`}
       </div>
       <div className="align-center">
