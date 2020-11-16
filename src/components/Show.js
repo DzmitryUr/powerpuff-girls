@@ -27,7 +27,15 @@ const Show = ({ show, showError, fetchShow }) => {
 
       <div className="main-content">
         <div>
-          <img className="cover-image" src={show.image.original} alt="poster" />
+          <img
+            className="cover-image"
+            src={
+              show.image
+                ? show.image.original
+                : 'https://static.tvmaze.com/images/no-img/no-img-landscape-text.png'
+            }
+            alt="poster"
+          />
         </div>
         <div className="summary">{removeTags(show.summary)}</div>
       </div>
