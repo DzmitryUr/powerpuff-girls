@@ -10,22 +10,23 @@ const Episodes = ({ episodes, episodesError, fetchEpisodes }) => {
   }, [fetchEpisodes, episodes]);
 
   if (episodesError) {
-    return <div>Error by loading Episode. Please try to reload.</div>;
+    return <div className="error">Error by loading Episode. Please try to reload.</div>;
   }
 
   if (!episodes || !episodes.length) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   return (
     <div>
       {episodes.map((episode) => {
         return (
-          <Link to={`/episodes/${episode.id}`} className="row ep-render" key={episode.id}>
-            <div className="col-2-of-4">
-              <h6>{episode.name}</h6>
-            </div>
-          </Link>
+          <div key={episode.id}>
+            <Link to={`/episodes/${episode.id}`}>
+              {`${episode.name} (Season ${episode.season}, Number ${episode.number})`}
+            </Link>
+            <hr />
+          </div>
         );
       })}
     </div>

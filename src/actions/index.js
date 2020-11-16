@@ -63,7 +63,7 @@ export const fetchEpisode = (id) => async (dispatch) => {
   dispatch(setEpisodesError(false));
   const [error, response] = await new ApiClient().fetchEpisode(id);
   if (error || !response) {
-    return dispatch(setEpisodesError(true));
+    return dispatch(setEpisodeError(true));
   }
   console.log('fetchEpisode response=', response);
   dispatch(setEpisode(response.data));
@@ -73,9 +73,8 @@ export const fetchEpisodes = (id) => async (dispatch) => {
   dispatch(setEpisodeError(false));
   const [error, response] = await new ApiClient().fetchEpisodes();
   if (error || !response) {
-    return dispatch(setEpisodeError(true));
+    return dispatch(setEpisodesError(true));
   }
-  const sortEpisodes = response.data.sort((a, b) => b.number - a.number);
   console.log('fetchEpisodes response=', response);
-  dispatch(setEpisodes(sortEpisodes));
+  dispatch(setEpisodes(response.data));
 };

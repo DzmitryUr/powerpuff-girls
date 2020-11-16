@@ -7,6 +7,8 @@ import store from './store';
 import ShowPage from './containers/ShowPage';
 import EpisodeDetailsPage from './containers/EpisodeDetailsPage';
 
+import './styles/main.scss';
+
 function App() {
   return (
     <Provider store={store}>

@@ -1,0 +1,55 @@
+.page {
+  margin: 3rem;
+  @include respond(phone) {
+    margin: 0.5rem;
+  }
+  @include respond(tablet) {
+    margin: 1rem;
+  }
+
+  .main-content {
+    display: flex;
+    @include respond(phone) {
+      display: block;
+    }
+
+    .summary {
+      margin-left: 1rem;
+      @include respond(phone) {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+
+    .cover-image {
+      width: 100%;
+      min-width: 200px;
+      max-width: 500px;
+      height: auto;
+      @include respond(tablet) {
+        min-width: 150px;
+      }
+      @include respond(phone) {
+        width: auto;
+        min-width: 150px;
+        max-width: 300px;
+      }
+    }
+  }
+}
+
+.align-center {
+  text-align: center;
+}
+
+.error {
+  margin: 3rem;
+  font-size: 3rem;
+  color: $error;
+}
+
+.loading {
+  margin: 3rem;
+  font-size: 3rem;
+  color: $primary;
+}
