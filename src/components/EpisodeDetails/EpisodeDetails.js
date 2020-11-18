@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { removeTags } from '../utils';
+import { removeTags } from '../../utils';
+import Loading from '../Loading';
 
 const EpisodeDetails = ({ match, episode, episodeError, fetchEpisode }) => {
   useEffect(() => {
@@ -13,7 +14,7 @@ const EpisodeDetails = ({ match, episode, episodeError, fetchEpisode }) => {
   }
 
   if (!episode || Object.keys(episode).length === 0) {
-    return <div className="loading">Loading...</div>;
+    return <Loading />;
   }
 
   return (

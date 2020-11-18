@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import EpisodesList from '../containers/EpisodesList';
+import EpisodesList from '../../containers/EpisodesList';
 
-import { removeTags } from '../utils';
+import Loading from '../Loading';
+import { removeTags } from '../../utils';
 
 const Show = ({ show, showError, fetchShow }) => {
   useEffect(() => {
@@ -16,7 +17,7 @@ const Show = ({ show, showError, fetchShow }) => {
   }
 
   if (!show || Object.keys(show).length === 0) {
-    return <div className="loading">Loading...</div>;
+    return <Loading />;
   }
 
   return (

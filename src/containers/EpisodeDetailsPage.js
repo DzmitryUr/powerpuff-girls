@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchEpisode } from '../actions';
 
-import EpisodeDetails from '../components/EpisodeDetails';
+import EpisodeDetails from '../components/EpisodeDetails/EpisodeDetails';
 
 const mapStateToProps = (state) => {
   return {
