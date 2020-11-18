@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading';
+import Error from '../Error';
 
 const Episodes = ({ episodes, episodesError, fetchEpisodes }) => {
   useEffect(() => {
@@ -11,7 +12,7 @@ const Episodes = ({ episodes, episodesError, fetchEpisodes }) => {
   }, [fetchEpisodes, episodes]);
 
   if (episodesError) {
-    return <div className="error">Error by loading Episode. Please try to reload.</div>;
+    return <Error error="Error by loading Episode. Please try to reload" />;
   }
 
   if (!episodes || !episodes.length) {

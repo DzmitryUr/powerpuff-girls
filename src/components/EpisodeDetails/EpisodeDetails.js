@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { removeTags } from '../../utils';
 import Loading from '../Loading';
+import Error from '../Error';
 
 const EpisodeDetails = ({ match, episode, episodeError, fetchEpisode }) => {
   useEffect(() => {
@@ -10,7 +11,7 @@ const EpisodeDetails = ({ match, episode, episodeError, fetchEpisode }) => {
   }, [fetchEpisode, match.params.id]);
 
   if (episodeError) {
-    return <div className="error">Error by loading Episode. Please try to reload.</div>;
+    return <Error error="Error by loading Episode. Please try to reload" />;
   }
 
   if (!episode || Object.keys(episode).length === 0) {

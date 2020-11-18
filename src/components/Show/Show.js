@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import EpisodesList from '../../containers/EpisodesList';
 
 import Loading from '../Loading';
+import Error from '../Error';
 import { removeTags } from '../../utils';
 
 const Show = ({ show, showError, fetchShow }) => {
@@ -13,7 +14,7 @@ const Show = ({ show, showError, fetchShow }) => {
   }, [fetchShow, show]);
 
   if (showError) {
-    return <div className="error">Error by loading Show. Please try to reload.</div>;
+    return <Error error="Error by loading Show. Please try to reload" />;
   }
 
   if (!show || Object.keys(show).length === 0) {
