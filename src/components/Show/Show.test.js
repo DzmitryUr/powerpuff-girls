@@ -1,34 +1,26 @@
-import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
-import pretty from 'pretty';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 
 import Show from './Show';
 
-let container = null;
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
+it('should render error Show snapshots', () => {
+  const { container } = render(<Show showError={true} show={{ id: 1 }} />);
+  expect(container.firstChild).toMatchInlineSnapshot(`
+    <div
+      class="error"
+    >
+      Error by loading Show. Please try to reload
+    </div>
+  `);
 });
 
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-});
-
-it('should check Show snapshots', () => {
-  act(() => {
-    render(<Show showError={true} show={{ id: 1 }} />, container);
-  });
-
-  expect(pretty(container.innerHTML)).toMatchInlineSnapshot(
-    `"<div class=\\"error\\">Error by loading Show. Please try to reload.</div>"`
-  );
-
-  act(() => {
-    render(<Show showError={false} fetchShow={() => {}} />, container);
-  });
-
-  expect(pretty(container.innerHTML)).toMatchInlineSnapshot(`"<div class=\\"loading\\">Loading...</div>"`);
+it('should render loading Show snapshots', () => {
+  const { container } = render(<Show showError={false} fetchShow={() => {}} />);
+  expect(container.firstChild).toMatchInlineSnapshot(`
+    <div
+      class="loading"
+    >
+      Loading...
+    </div>
+  `);
 });
